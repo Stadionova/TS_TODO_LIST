@@ -1,0 +1,27 @@
+.title {
+    color: rebeccapurple;
+    font-weight: 300;
+    margin-left: 50px;
+}
+
+.item {
+    background-color: cadetblue;
+    font-size: larger;
+    border: 1px solid black;
+    width: 168px;
+    position: relative;
+}
+
+.itemElem {
+    display: flex;
+}
+
+.cross {
+    position: absolute;
+    left: 170px;
+    cursor: pointer;
+}
+
+.todoList {
+    margin-left: 20px;
+}

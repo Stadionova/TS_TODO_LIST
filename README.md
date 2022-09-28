@@ -44,3 +44,31 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+----------------------
+
+Redux основные понятия: reducer-ы, action-ы, action creator-ы and store:
+
++ reducer – это чистая функция, которая принимает в качестве аргументов предыдущее состояние и action и возвращает новое состояние. 
++ action – это объект, задающий тип.
+
+const myReducer = (previousState, action) => {
+    // use the action type and payload to create a new state based on the previous state.
+    return newState;
+}
+
++ Большинство изменений в приложении, использующем Redux, начинаются с события, которое прямо или косвенно запускается пользователем. Действия часто отправляются с помощью action creator-а.
++ action creator – это функция, которая возвращает объект action. Объект action, возвращаемый action creator-ом, отправляется всем различным reducer-ам в приложении.
++ В зависимости от action-а reducer-ы могут выбрать возврат новой версии своего фрагмента состояния. Затем возвращенная часть состояния передается по конвейеру в состояние приложения, которое затем возвращается в приложение React, а затем – вызывает повторный рендеринг всех его компонентов.
+
++ Допустим, пользователь нажимает кнопку, после чего мы вызываем action creator, который представляет собой функцию, возвращающую объект action. Этот объект содержит аргумент type, описывающий тип только что запущенного действия.
+
++ Что такое store?
++ В Redux store – это объект, объединяющий action-ы (которые представляют то, что произошло) и reducer-ы (которые обновляют состояние в соответствии с этими action-ами). 
++ У store есть несколько обязанностей:
+    - Разрешать доступ к состоянию через getState().
+    - Разрешать обновление состояния через dispatch(action).
+    - Хранить состояние приложения.
+    - Регистрировать слушателей с помощью subscribe(listener).
+    - Отменять регистрацию слушателей с помощью функции, возвращаемой subscribe(listener).
